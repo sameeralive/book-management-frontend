@@ -1,9 +1,26 @@
 #sidebar-wrapper {
   min-height: 100vh;
+  background: rgb(8, 44, 45);
+  background: linear-gradient(
+    0deg,
+    rgba(8, 44, 45, 1) 0%,
+    rgba(0, 72, 93, 1) 100%
+  );
   .sidebar-heading {
     padding: 20px 15px;
     text-align: center;
     font-weight: 700;
     font-size: 30px;
+    color: #fff;
+  }
+  .list-group {
+    a {
+      background: transparent;
+      color: #fff;
+
+      i {
+        margin-right: 10px;
+      }
+    }
   }
 }
