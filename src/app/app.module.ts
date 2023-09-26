@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { AdminHeaderComponent } from './layout/admin-header/admin-header.component';
+import { AdminFooterComponent } from './layout/admin-footer/admin-footer.component';
+import { AdminSidebarComponent } from './layout/admin-sidebar/admin-sidebar.component';
+import { AuthorModule } from './author/author.module';
+import { BookModule } from './book/book.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminLayoutComponent,
+    AdminHeaderComponent,
+    AdminFooterComponent,
+    AdminSidebarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, AuthorModule, BookModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
