@@ -42,7 +42,7 @@ export class AuthorUpdateComponent implements OnInit {
     delete this.author._id;
     this.authorService.updateAuthor(this.authorId, this.author).subscribe(
       (data: any) => {
-        this.toastr.success('Saved successfully', 'Success');
+        this.toastr.success('Updated successfully', 'Success');
         this.isLoading = false;
         this.router.navigateByUrl('/author/author-list');
       },

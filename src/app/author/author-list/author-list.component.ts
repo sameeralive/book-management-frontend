@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Author } from '../../models/author';
 import { AuthorService } from '../../services/author.service';
 
@@ -7,7 +7,7 @@ import { AuthorService } from '../../services/author.service';
   templateUrl: './author-list.component.html',
   styleUrls: ['./author-list.component.scss'],
 })
-export class AuthorListComponent {
+export class AuthorListComponent implements OnInit {
   authorsList: Author[] = [];
 
   constructor(private authorService: AuthorService) {}

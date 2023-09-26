@@ -7,12 +7,12 @@ const routes: Routes = [
     path: '',
     component: AdminLayoutComponent,
     children: [
-      // {
-      //   path: '',
-      //   canActivate: [],
-      //   loadChildren: () =>
-      //     import('./book/book.module').then((m) => m.BookModule),
-      // },
+      {
+        path: 'book',
+        canActivate: [],
+        loadChildren: () =>
+          import('./book/book.module').then((m) => m.BookModule),
+      },
       {
         path: 'author',
         canActivate: [],

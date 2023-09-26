@@ -26,7 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     AuthorModule,
     BookModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({}),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-md-12">
+    <div>
+      <h4>Create New Book</h4>
+    </div>
+
+    <div class="card mt-4">
+      <div class="card-body">
+        <form
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate
+        >
+          <div class="form-group mb-3">
+            <label for="name">Book Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              [(ngModel)]="book.name"
+              required
+              #name="ngModel"
+            />
+            <div class="text-danger" *ngIf="f.submitted && name.invalid">
+              <div *ngIf="name.errors?.['required']">Book name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="isbn">ISBN</label>
+            <input
+              type="text"
+              class="form-control"
+              id="isbn"
+              name="isbn"
+              [(ngModel)]="book.isbn"
+              required
+              #isbn="ngModel"
+            />
+            <div class="text-danger" *ngIf="f.submitted && isbn.invalid">
+              <div *ngIf="isbn.errors?.['required']">ISBN is required</div>
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="author">Author</label>
+            <ng-select
+              id="author"
+              name="author"
+              [(ngModel)]="book.author"
+              placeholder="Select a author"
+              required
+              #author="ngModel"
+            >
+              <ng-option *ngFor="let item of authorsList" [value]="item._id">{{
+                item.first_name + " " + item.last_name
+              }}</ng-option>
+            </ng-select>
+            <div class="text-danger" *ngIf="f.submitted && author.invalid">
+              <div *ngIf="author.errors?.['required']">Author is required</div>
+            </div>
+          </div>
+
+          <div class="form-group mt-3 text-end">
+            <button
+              class="btn btn-primary"
+              [disabled]="isLoading"
+              id="signInBtn"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
