@@ -85,7 +85,7 @@ describe('AuthorUpdateComponent', () => {
       'Updated successfully',
       'Success',
     );
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/author/author-list');
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/authors/author-list');
   }));
 
   it('should call updateAuthor and show error message on failed submit', fakeAsync(() => {

@@ -44,7 +44,7 @@ export class AuthorUpdateComponent implements OnInit {
       (data: any) => {
         this.toastr.success('Updated successfully', 'Success');
         this.isLoading = false;
-        this.router.navigateByUrl('/author/author-list');
+        this.router.navigateByUrl('/authors/author-list');
       },
       (err: any) => {
         console.log(err);

@@ -61,7 +61,7 @@ describe('AuthorCreateComponent', () => {
       'Saved successfully',
       'Success',
     );
-    expect(router.navigateByUrl).toHaveBeenCalledWith('/author/author-list');
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/authors/author-list');
   }));
 
   it('should call createAuthor and show error message on failed submit', fakeAsync(() => {

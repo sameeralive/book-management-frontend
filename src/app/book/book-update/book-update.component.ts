@@ -45,7 +45,12 @@ export class BookUpdateComponent {
     this.bookId = this.route.snapshot.params['id'];
     this.bookService.getBook(this.bookId).subscribe(
       (data) => {
-        this.book = data;
+        this.book = {
+          _id: data._id,
+          name: data.name,
+          isbn: data.isbn,
+          author: data.author._id,
+        };
       },
       (error) => {
         console.error('An error occurred:', error);
@@ -61,7 +66,7 @@ export class BookUpdateComponent {
       (data: any) => {
         this.toastr.success('Updated successfully', 'Success');
         this.isLoading = false;
-        this.router.navigateByUrl('/book/book-list');
+        this.router.navigateByUrl('/books/book-list');
       },
       (err: any) => {
         console.log(err);

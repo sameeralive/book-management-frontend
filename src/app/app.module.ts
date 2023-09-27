@@ -11,6 +11,7 @@ import { AuthorModule } from './author/author.module';
 import { BookModule } from './book/book.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     BookModule,
     HttpClientModule,
     ToastrModule.forRoot({}),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
 import { BookService } from '../../services/book.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-book-list',
@@ -9,14 +10,22 @@ import { BookService } from '../../services/book.service';
 })
 export class BookListComponent implements OnInit {
   booksList: Book[] = [];
+  selectedBook: any;
+  isBookViewOpen: boolean = false;
 
-  constructor(private bookService: BookService) {}
+  constructor(
+    private bookService: BookService,
+    private modalService: NgbModal,
+  ) {}
 
   ngOnInit() {
-    this.getAuthors();
+    this.getBooks();
   }
 
-  getAuthors() {
+  /**
+   * description: Gets the list of books
+   * */
+  getBooks() {
     this.bookService.getBooks().subscribe(
       (data) => {
         this.booksList = data;
@@ -25,5 +34,29 @@ export class BookListComponent implements OnInit {
         console.error('An error occurred:', error);
       },
     );
+  }
+
+  /**
+   * description: Opens the book view modal
+   * @param book: Book object
+   * */
+  openBookViewModal(book: any, content: any) {
+    this.selectedBook = book;
+    this.isBookViewOpen = true;
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {},
+        (reason) => {},
+      );
+  }
+
+  /**
+   * description: Closes the book view modal
+   * */
+  closeBookViewModal() {
+    this.isBookViewOpen = false;
+    this.selectedBook = null;
+    this.modalService.dismissAll();
   }
 }

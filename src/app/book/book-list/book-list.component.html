@@ -20,7 +20,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th style="width: 80px"></th>
+                <th style="width: 120px"></th>
                 <th>Name</th>
               </tr>
             </thead>
@@ -28,12 +28,26 @@
               <tr *ngFor="let el of booksList; let i = index">
                 <td>
                   <a
-                    class="btn btn-outline-secondary btn-sm"
-                    [routerLink]="['/book/book-update', el._id]"
-                    title="View Customer"
+                    class="btn btn-outline-secondary btn-sm me-2"
+                    [routerLink]="['/books/book-update', el._id]"
+                    title="Update Book"
                   >
                     <i class="bi bi-pencil"></i>
                   </a>
+                  <a
+                    class="btn btn-outline-secondary btn-sm me-2"
+                    [routerLink]="['/books/book-view', el._id]"
+                    title="View Book"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </a>
+                  <!--                  <button-->
+                  <!--                    class="btn btn-outline-secondary btn-sm"-->
+                  <!--                    (click)="openBookViewModal(content, el)"-->
+                  <!--                    title="View Book"-->
+                  <!--                  >-->
+                  <!--                    <i class="bi bi-eye"></i>-->
+                  <!--                  </button>-->
                 </td>
                 <td>{{ el.name }}</td>
               </tr>
@@ -44,3 +58,30 @@
     </div>
   </div>
 </div>
+
+<!--<ng-template #content let-modal>-->
+<!--  <div class="modal-header">-->
+<!--    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn-close"-->
+<!--      aria-label="Close"-->
+<!--      (click)="modal.dismiss('Cross click')"-->
+<!--    ></button>-->
+<!--  </div>-->
+<!--  <div class="modal-body">-->
+<!--    <app-book-view-->
+<!--      *ngIf="isBookViewOpen"-->
+<!--      [selectedBook]="selectedBook"-->
+<!--    ></app-book-view>-->
+<!--  </div>-->
+<!--  <div class="modal-footer">-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn btn-outline-dark"-->
+<!--      (click)="modal.close('Save click')"-->
+<!--    >-->
+<!--      Save-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</ng-template>-->

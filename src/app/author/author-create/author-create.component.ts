@@ -27,7 +27,7 @@ export class AuthorCreateComponent {
       (data: any) => {
         this.toastr.success('Saved successfully', 'Success');
         this.isLoading = false;
-        this.router.navigateByUrl('/author/author-list');
+        this.router.navigateByUrl('/authors/author-list');
       },
       (err: any) => {
         console.log(err);

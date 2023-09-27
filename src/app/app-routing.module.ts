@@ -8,13 +8,18 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     children: [
       {
-        path: 'book',
+        path: '',
+        redirectTo: 'books/book-list',
+        pathMatch: 'full',
+      },
+      {
+        path: 'books',
         canActivate: [],
         loadChildren: () =>
           import('./book/book.module').then((m) => m.BookModule),
       },
       {
-        path: 'author',
+        path: 'authors',
         canActivate: [],
         loadChildren: () =>
           import('./author/author.module').then((m) => m.AuthorModule),

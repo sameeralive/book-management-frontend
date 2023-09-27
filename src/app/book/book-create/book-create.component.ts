@@ -46,7 +46,7 @@ export class BookCreateComponent implements OnInit {
       (data: any) => {
         this.toastr.success('Saved successfully', 'Success');
         this.isLoading = false;
-        this.router.navigateByUrl('/book/book-list');
+        this.router.navigateByUrl('/books/book-list');
       },
       (err: any) => {
         console.log(err);
