@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book';
 import { BookService } from '../../services/book.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BookViewComponent } from '../book-view/book-view.component';
 
 @Component({
   selector: 'app-book-list',
@@ -46,17 +47,14 @@ export class BookListComponent implements OnInit {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
-        (result) => {},
-        (reason) => {},
+        (result) => {
+          this.isBookViewOpen = false;
+          this.selectedBook = null;
+        },
+        (reason) => {
+          this.isBookViewOpen = false;
+          this.selectedBook = null;
+        },
       );
-  }
-
-  /**
-   * description: Closes the book view modal
-   * */
-  closeBookViewModal() {
-    this.isBookViewOpen = false;
-    this.selectedBook = null;
-    this.modalService.dismissAll();
   }
 }

@@ -5,7 +5,6 @@ import { AuthorRoutingModule } from './author-routing.module';
 import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorCreateComponent } from './author-create/author-create.component';
 import { AuthorUpdateComponent } from './author-update/author-update.component';
-import { AuthorViewComponent } from './author-view/author-view.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { FormsModule } from '@angular/forms';
     AuthorListComponent,
     AuthorCreateComponent,
     AuthorUpdateComponent,
-    AuthorViewComponent,
   ],
   imports: [CommonModule, AuthorRoutingModule, FormsModule],
 })

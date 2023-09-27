@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../../services/book.service';
 
 @Component({
@@ -9,22 +8,16 @@ import { BookService } from '../../services/book.service';
 })
 export class BookViewComponent {
   book: any;
-  bookId: string = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private bookService: BookService,
-  ) {
-    this.getBookData();
+  @Input()
+  set selectedBook(book: any) {
+    this.setBookData(book);
   }
+
+  constructor(private bookService: BookService) {}
 
   setBookData(book: any) {
-    this.book = book;
-  }
-
-  getBookData() {
-    this.bookId = this.route.snapshot.params['id'];
-    this.bookService.getBook(this.bookId).subscribe(
+    this.bookService.getBook(book._id).subscribe(
       (data) => {
         this.book = data;
       },
